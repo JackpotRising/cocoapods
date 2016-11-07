@@ -1,0 +1,6 @@
+framework module JackpotRising {
+  umbrella header "JackpotRising.h"
+
+  export *
+  module * { export * }
+}
