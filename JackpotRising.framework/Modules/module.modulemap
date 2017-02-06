@@ -3,4 +3,16 @@ framework module JackpotRising {
 
   export *
   module * { export * }
+  
+  explicit module Private {
+      header "ZoozSDKWrapper.h"
+      header "AppDataTracker.h"
+      header "NSString+JackpotRising.h"
+      header "Luhn.h"
+  }
+}
+
+
+module JackpotRising.Swift {
+    header "JackpotRising-Swift.h"
 }
