@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary = "Jackpot Rising is a patent pending software solution that you can integrate into your games, that enables your users to compete against."
   s.requires_arc = true
 
-  s.version = "2.2.1"
+  s.version = "2.2.2"
 
   s.license = { :type => "Apache", :file => "LICENSE" }
 
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.homepage = "https://github.com/JackpotRising"
 
   # 6 - Replace this URL with your own Git URL from "Quick Setup"
-  s.source = { :git => "git@github.com:JackpotRising/cocoapods.git", :tag => "#{s.version}"}
+  s.source = { :git => "https://github.com/JackpotRising/cocoapods.git", :tag => "#{s.version}"}
 
   # 7
   s.framework = 'UIKit', 'CoreLocation', 'CoreText'
