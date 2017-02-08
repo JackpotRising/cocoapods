@@ -78,8 +78,6 @@
  *  @param email                - email ID of account holder
  *  @param paymentMethodDetails - credit card info as ZoozPaymentMethodDetails
  */
-- (void) addCreditCard: (NSString *) token
-          emailAddress:(NSString *)email
-  paymentMethodDetails:(ZoozWrapperPaymentObject *)paymentMethodDetails;
+- (void) addCreditCard:(NSString *)token emailAddress:(NSString *)email paymentMethodDetails:(ZoozWrapperPaymentObject *)paymentMethodDetails andBillingAddress:(NSDictionary*)addressJSON;
 
 @end
