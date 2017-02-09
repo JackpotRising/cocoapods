@@ -543,6 +543,46 @@ SWIFT_CLASS("_TtC13JackpotRising15SessionDelegate")
 @end
 
 
+@interface SessionDelegate (SWIFT_EXTENSION(JackpotRising)) <NSURLSessionStreamDelegate>
+/**
+  Tells the delegate that the read side of the connection has been closed.
+  \param session The session.
+
+  \param streamTask The stream task.
+
+*/
+- (void)URLSession:(NSURLSession * _Nonnull)session readClosedForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
+/**
+  Tells the delegate that the write side of the connection has been closed.
+  \param session The session.
+
+  \param streamTask The stream task.
+
+*/
+- (void)URLSession:(NSURLSession * _Nonnull)session writeClosedForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
+/**
+  Tells the delegate that the system has determined that a better route to the host is available.
+  \param session The session.
+
+  \param streamTask The stream task.
+
+*/
+- (void)URLSession:(NSURLSession * _Nonnull)session betterRouteDiscoveredForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
+/**
+  Tells the delegate that the stream task has been completed and provides the unopened stream objects.
+  \param session The session.
+
+  \param streamTask The stream task.
+
+  \param inputStream The new input stream.
+
+  \param outputStream The new output stream.
+
+*/
+- (void)URLSession:(NSURLSession * _Nonnull)session streamTask:(NSURLSessionStreamTask * _Nonnull)streamTask didBecomeInputStream:(NSInputStream * _Nonnull)inputStream outputStream:(NSOutputStream * _Nonnull)outputStream;
+@end
+
+
 @interface SessionDelegate (SWIFT_EXTENSION(JackpotRising)) <NSURLSessionDataDelegate>
 /**
   Tells the delegate that the data task received the initial reply (headers) from the server.
@@ -595,46 +635,6 @@ SWIFT_CLASS("_TtC13JackpotRising15SessionDelegate")
 
 */
 - (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask willCacheResponse:(NSCachedURLResponse * _Nonnull)proposedResponse completionHandler:(void (^ _Nonnull)(NSCachedURLResponse * _Nullable))completionHandler;
-@end
-
-
-@interface SessionDelegate (SWIFT_EXTENSION(JackpotRising)) <NSURLSessionStreamDelegate>
-/**
-  Tells the delegate that the read side of the connection has been closed.
-  \param session The session.
-
-  \param streamTask The stream task.
-
-*/
-- (void)URLSession:(NSURLSession * _Nonnull)session readClosedForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
-/**
-  Tells the delegate that the write side of the connection has been closed.
-  \param session The session.
-
-  \param streamTask The stream task.
-
-*/
-- (void)URLSession:(NSURLSession * _Nonnull)session writeClosedForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
-/**
-  Tells the delegate that the system has determined that a better route to the host is available.
-  \param session The session.
-
-  \param streamTask The stream task.
-
-*/
-- (void)URLSession:(NSURLSession * _Nonnull)session betterRouteDiscoveredForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
-/**
-  Tells the delegate that the stream task has been completed and provides the unopened stream objects.
-  \param session The session.
-
-  \param streamTask The stream task.
-
-  \param inputStream The new input stream.
-
-  \param outputStream The new output stream.
-
-*/
-- (void)URLSession:(NSURLSession * _Nonnull)session streamTask:(NSURLSessionStreamTask * _Nonnull)streamTask didBecomeInputStream:(NSInputStream * _Nonnull)inputStream outputStream:(NSOutputStream * _Nonnull)outputStream;
 @end
 
 @class NSURLSessionTaskMetrics;
@@ -736,6 +736,10 @@ SWIFT_CLASS("_TtC13JackpotRising12TaskDelegate")
 
 
 @interface UIColor (SWIFT_EXTENSION(JackpotRising))
+@end
+
+
+@interface UILabel (SWIFT_EXTENSION(JackpotRising))
 @end
 
 
