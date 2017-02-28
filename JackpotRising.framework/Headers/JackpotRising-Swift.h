@@ -168,24 +168,47 @@ SWIFT_CLASS("_TtC13JackpotRising14DateTimePicker")
 @end
 
 @protocol JackpotRisingDelegate;
+enum JackpotRisingURL : NSInteger;
+enum JackpotRisingAPIMode : NSInteger;
 
 /**
   Main class for the SDK
 */
 SWIFT_CLASS("_TtC13JackpotRising13JackpotRising")
 @interface JackpotRising : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+/**
+  SDK static instance
+*/
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) JackpotRising * _Nonnull sharedInstance;)
++ (JackpotRising * _Nonnull)sharedInstance;
 /**
   Class delegate variable
 */
 @property (nonatomic, strong) id <JackpotRisingDelegate> _Nullable delegate;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) JackpotRising * _Nonnull sharedInstance;)
-+ (JackpotRising * _Nonnull)sharedInstance;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+/**
+  point SDK to production/staging/test servers
+*/
+@property (nonatomic) enum JackpotRisingURL pointingURL;
+/**
+  set SDK mode
+  If mode is true, SDK will be running in test mode.
+  SDK won’t check for user Geolocation when run in test mode.
+*/
+@property (nonatomic) BOOL testMode;
+@property (nonatomic) enum JackpotRisingAPIMode apiMode;
 @end
 
+typedef SWIFT_ENUM(NSInteger, JackpotRisingURL) {
+  JackpotRisingURLProduction = 0,
+  JackpotRisingURLStaging = 1,
+  JackpotRisingURLTest = 2,
+};
 
-@interface JackpotRising (SWIFT_EXTENSION(JackpotRising))
-@end
+typedef SWIFT_ENUM(NSInteger, JackpotRisingAPIMode) {
+  JackpotRisingAPIModeProduction = 0,
+  JackpotRisingAPIModeTest = 1,
+};
 
 @class CLLocationManager;
 @class CLLocation;
@@ -194,6 +217,36 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) JackpotRisin
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+@end
+
+
+@interface JackpotRising (SWIFT_EXTENSION(JackpotRising))
+/**
+  Method to initialize the JackpotRising SDK
+  \param clientID The Client ID generated for the game from Dashboard
+
+  \param clientSecret The client Secret Key generated for the game from Dashboard
+
+*/
+- (void)initWithClientCredentials:(NSString * _Nonnull)clientID clientSecret:(NSString * _Nonnull)clientSecret SWIFT_METHOD_FAMILY(none);
+/**
+  Method to start the SDK
+*/
+- (void)showSDK;
+/**
+  Variable to check the contest running status
+*/
+- (BOOL)isContestRunning;
+/**
+  Method to submit contest score
+  \param score contest score
+
+*/
+- (void)submitScore:(NSInteger)score;
+@end
+
+
+@interface JackpotRising (SWIFT_EXTENSION(JackpotRising))
 @end
 
 
@@ -213,39 +266,6 @@ SWIFT_PROTOCOL("_TtP13JackpotRising21JackpotRisingDelegate_")
 - (void)initialPopupCancelled SWIFT_METHOD_FAMILY(none);
 - (void)sdkClosed;
 - (void)sdkFailedToInitialize:(NSString * _Nonnull)message;
-@end
-
-
-@interface JackpotRising (SWIFT_EXTENSION(JackpotRising))
-/**
-  Method to initialize the JackpotRising SDK
-  \param clientID The Client ID generated for the game from Dashboard
-
-  \param clientSecret The client Secret Key generated for the game from Dashboard
-
-*/
-- (void)initWithClientCredentials:(NSString * _Nonnull)clientID clientSecret:(NSString * _Nonnull)clientSecret SWIFT_METHOD_FAMILY(none);
-/**
-  set SDK mode
-  If mode is true, it is test mode. SDK won’t check for Geolocation when mode is false
-  \param mode sdk mode
-
-*/
-- (void)testMode:(BOOL)mode;
-/**
-  Method to start the SDK
-*/
-- (void)showSDK;
-/**
-  Variable to check the contest running status
-*/
-- (BOOL)isContestRunning;
-/**
-  Method to submit contest score
-  \param score contest score
-
-*/
-- (void)submitScore:(NSInteger)score;
 @end
 
 
