@@ -16,10 +16,9 @@
 - (void)trackEventWithName:(NSString*)name
              andProperties:(NSDictionary*)properties;
 - (void)incrementField:(NSString*)name byValue:(NSNumber*)value;
-- (void)setDistinctID:(NSString*)distinctID;
 - (void)setClientID:(NSString*)clientId;
 - (void)setUserAnonymous:(BOOL)status;
-- (void)setProfileEmail:(NSString*)email;
+- (void)setProfileEmail:(NSString*)email withUsername:(NSString*)username;
 - (void)createAlias:(NSString*)alias;
 - (void)trackEventWithName:(NSString*)name;
 - (void)resetUser;
