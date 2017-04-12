@@ -20,12 +20,17 @@
 
 @interface ZoozWrapperPaymentObject : NSObject
 
-@property (nonatomic, retain) NSString *expirationMonth;
-@property (nonatomic, retain) NSString *expirationYear;
-@property (nonatomic, retain) NSString *cardHolderName;
-@property (nonatomic, retain) NSString *cvvNumber;
-@property (nonatomic, retain) NSString *cardNumber;
-@property (nonatomic, retain) NSString *userIdNumber;
+@property (nonatomic, strong) NSString *expirationMonth;
+@property (nonatomic, strong) NSString *expirationYear;
+@property (nonatomic, strong) NSString *cardHolderName;
+@property (nonatomic, strong) NSString *cvvNumber;
+@property (nonatomic, strong) NSString *cardNumber;
+@property (nonatomic, strong) NSString *userIdNumber;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *city;
+@property (nonatomic, strong) NSString *state;
+@property (nonatomic, strong) NSString *countryCode;
+@property (nonatomic, strong) NSString *zip;
 
 @end
 
@@ -76,8 +81,7 @@
  *
  *  @param token                - pre auth token
  *  @param email                - email ID of account holder
- *  @param paymentMethodDetails - credit card info as ZoozPaymentMethodDetails
  */
-- (void) addCreditCard:(NSString *)token emailAddress:(NSString *)email paymentMethodDetails:(ZoozWrapperPaymentObject *)paymentMethodDetails andBillingAddress:(NSDictionary*)addressJSON;
+- (void) addCreditCard:(NSString *)token emailAddress:(NSString *)email paymentMethodDetails:(ZoozWrapperPaymentObject *)paymentMethodDetails;
 
 @end
