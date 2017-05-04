@@ -9,6 +9,7 @@ framework module JackpotRising {
       header "AppDataTracker.h"
       header "NSString+JackpotRising.h"
       header "Luhn.h"
+      header "SynchronousRequest.h"
   }
 }
 
