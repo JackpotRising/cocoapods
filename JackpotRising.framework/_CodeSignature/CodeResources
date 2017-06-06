@@ -42,7 +42,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		iy08Emfs12L7BQJaY5z0qNwOGvM=
+		FtynSlsWPi7Yz30YzzAQLQODyKA=
 		</data>
 		<key>LICENSE</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>Modules/JackpotRising.swiftmodule/arm.swiftmodule</key>
 		<data>
-		o+tBrbfADEn0VdCMhMGuw2k0SI4=
+		zvahzKZ9QY2j2HDAQwzq+GuTf8s=
 		</data>
 		<key>Modules/JackpotRising.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>Modules/JackpotRising.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		kkOK+IRQNT6D7j1ohyQ+ADpTOIU=
+		nCCf7JvqzSsXziRBdjMPsF6xOFQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -612,11 +612,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			o+tBrbfADEn0VdCMhMGuw2k0SI4=
+			zvahzKZ9QY2j2HDAQwzq+GuTf8s=
 			</data>
 			<key>hash2</key>
 			<data>
-			jwhQfB7YDrJW6Ph2HEtjLEbb91e2penf1sS4cfrA6Yw=
+			ANOzAfr8GJDjN3k/S9rMo92sn255qAiajFRoOV+CQnE=
 			</data>
 		</dict>
 		<key>Modules/JackpotRising.swiftmodule/arm64.swiftdoc</key>
@@ -634,11 +634,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kkOK+IRQNT6D7j1ohyQ+ADpTOIU=
+			nCCf7JvqzSsXziRBdjMPsF6xOFQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			6XeNkPaX1jBqmGR6H6GuC32SlW+eJPedKPCHlcvQYwU=
+			hcMlDqnQgHOlchsJk7pM/IEW7G1DDNFtKCxqteXHA/U=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
