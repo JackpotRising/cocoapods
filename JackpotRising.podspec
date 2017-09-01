@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary = "Jackpot Rising is a patent pending software solution that you can integrate into your games, that enables your users to compete against."
   s.requires_arc = true
 
-  s.version = "2.25"
+  s.version = "3.0.6"
 
   s.license = { :type => "Apache", :file => "LICENSE" }
 
@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
 
   s.vendored_frameworks = 'JackpotRising.framework'
 
-  s.xcconfig = { "OTHER_LDFLAGS" => "$(inherited) -ObjC", "EMBEDDED_CONTENT_CONTAINS_SWIFT" => "YES", 'CLANG_ENABLE_MODULES' => 'YES', 'DEFINES_MODULE' => 'YES' }
+  s.xcconfig = { "OTHER_LDFLAGS" => "$(inherited) -ObjC", "EMBEDDED_CONTENT_CONTAINS_SWIFT" => "YES", 'CLANG_ENABLE_MODULES' => 'YES', 'DEFINES_MODULE' => 'YES', "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES" => "YES"}
 
 end
