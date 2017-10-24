@@ -12,4 +12,5 @@ framework module JackpotRising {
 
 module JackpotRising.Swift {
     header "JackpotRising-Swift.h"
+    requires objc
 }
