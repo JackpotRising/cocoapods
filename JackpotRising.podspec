@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.homepage = "https://github.com/JackpotRising"
 
   # 6 - Replace this URL with your own Git URL from "Quick Setup"
-  s.source = { :git => "https://github.com/JackpotRising/cocoapods.git", :version => "#{s.version}"}
+  s.source = { :git => "https://github.com/JackpotRising/cocoapods.git", :tag => "#{s.version}"}
 
   # 7
   s.framework = 'UIKit', 'CoreLocation', 'CoreText'
