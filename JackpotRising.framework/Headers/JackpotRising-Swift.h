@@ -192,6 +192,7 @@ enum JackpotRisingAPIMode : NSInteger;
 enum JackpotRisingContestMode : NSInteger;
 @class UIApplication;
 
+/// JackpotRising Base Class
 SWIFT_CLASS("_TtC13JackpotRising13JackpotRising")
 @interface JackpotRising : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) JackpotRising * _Nonnull sharedInstance;)
@@ -201,6 +202,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) JackpotRisin
 @property (nonatomic) BOOL testMode;
 @property (nonatomic, strong) id <JackpotRisingDelegate> _Nullable delegate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+/// SDK public function to open/show the JackpotRising SDK view from client
 - (void)showSDK;
 /// Method to initialize the JackpotRising SDK
 /// \param clientID The Client ID generated for the game from Dashboard
@@ -212,8 +214,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) JackpotRisin
 /// \param score tournament score
 ///
 - (void)submitScore:(double)score;
+/// SDK Method to check whether a contest is currently running
+///
+/// returns:
+/// contestRunningStatus:boolean
 - (BOOL)isContestRunning SWIFT_WARN_UNUSED_RESULT;
+/// SDK method to check the status of  contest in the sdk
+///
+/// returns:
+/// contest status: JackpotRisingContestMode
 - (enum JackpotRisingContestMode)getContestStatus SWIFT_WARN_UNUSED_RESULT;
+/// SDK  public method to catch open url method call in a client application,
+/// this method needs to be called in the clients open url function
 - (BOOL)application:(UIApplication * _Nonnull)app open:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -236,6 +248,7 @@ typedef SWIFT_ENUM(NSInteger, JackpotRisingAPIMode) {
 };
 
 
+/// protocol methods to be implemented in a client of JackpotRising SDK
 SWIFT_PROTOCOL("_TtP13JackpotRising21JackpotRisingDelegate_")
 @protocol JackpotRisingDelegate <NSObject>
 - (void)contestStarted:(NSDictionary<NSString *, id> * _Nonnull)data;
