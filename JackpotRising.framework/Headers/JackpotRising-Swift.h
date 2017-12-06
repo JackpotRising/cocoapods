@@ -214,6 +214,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) JackpotRisin
 /// \param score tournament score
 ///
 - (void)submitScore:(double)score;
+/// Method to indicate an advertisement was watched by user
+- (void)contestAdWatched:(BOOL)status;
 /// SDK Method to check whether a contest is currently running
 ///
 /// returns:
@@ -251,10 +253,11 @@ typedef SWIFT_ENUM(NSInteger, JackpotRisingAPIMode) {
 /// protocol methods to be implemented in a client of JackpotRising SDK
 SWIFT_PROTOCOL("_TtP13JackpotRising21JackpotRisingDelegate_")
 @protocol JackpotRisingDelegate <NSObject>
-- (void)contestStarted:(NSDictionary<NSString *, id> * _Nonnull)data;
+- (void)contestData:(NSDictionary<NSString *, id> * _Nonnull)data;
 - (void)locationFecthStatus:(BOOL)status;
 - (void)initialPopupCancelled;
 - (void)sdkClosed;
+- (void)playContest:(BOOL)adStatus;
 - (void)sdkFailedToInitialize:(NSString * _Nonnull)message;
 @end
 
