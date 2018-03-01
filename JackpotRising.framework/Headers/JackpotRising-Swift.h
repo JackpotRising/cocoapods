@@ -201,6 +201,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) JackpotRisin
 @property (nonatomic) enum JackpotRisingAPIMode apiMode;
 @property (nonatomic) BOOL testMode;
 @property (nonatomic, strong) id <JackpotRisingDelegate> _Nullable delegate;
+@property (nonatomic, copy) NSString * _Nullable deviceToken;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 /// SDK public function to open/show the JackpotRising SDK view from client
 - (void)showSDK;
@@ -233,6 +234,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) JackpotRisin
 /// SDK  public method to catch open url method call in a client application,
 /// this method needs to be called in the clients open url function
 - (BOOL)application:(UIApplication * _Nonnull)app open:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
+- (void)initWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions SWIFT_METHOD_FAMILY(none);
+/// Method to set unique_id for a user
+/// \param score tournament score
+///
+- (void)setUniqueId:(NSString * _Nonnull)id;
 @end
 
 typedef SWIFT_ENUM(NSInteger, JackpotRisingContestMode) {
