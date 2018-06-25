@@ -21,7 +21,6 @@ Pod::Spec.new do |s|
   s.framework = 'UIKit', 'Accelerate', 'MobileCoreServices', 'QuartzCore', 'Security', 'CoreLocation', 'CFNetwork', 'SystemConfiguration'
 
   s.vendored_frameworks = 'JackpotRising.framework'
-  s.dependency 'Heap'
 
   s.pod_target_xcconfig = { "OTHER_LDFLAGS" => "$(inherited) -ObjC -all_load",
   'CLANG_ENABLE_MODULES' => 'YES',
