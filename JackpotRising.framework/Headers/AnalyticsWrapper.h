@@ -14,5 +14,6 @@
 + (AnalyticsWrapper*)initialize;
 + (void)identify:(NSString*)userId traits:(NSDictionary*)traits;
 + (void)track:(NSString *)event properties:(SERIALIZABLE_DICT _Nullable)properties options:(SERIALIZABLE_DICT _Nullable)options;
-
++ (void)alias:(NSString *)newId;
++ (void)reset;
 @end
