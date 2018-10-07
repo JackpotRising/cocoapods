@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary = "Jackpot Rising is a patent pending software solution that you can integrate into your games, that enables your users to compete against."
   s.requires_arc = true
 
-  s.version = "3.5.13"
+  s.version = "3.5.14"
   s.license = { :type => "Apache", :file => "LICENSE" }
   s.author = { "Nick Wallace" => "developer@jackpotrising.com" }
 
@@ -17,7 +17,6 @@ Pod::Spec.new do |s|
   s.framework = 'UIKit', 'Accelerate', 'MobileCoreServices', 'QuartzCore', 'Security', 'CoreLocation', 'CFNetwork', 'SystemConfiguration'
 
   s.source_files = 'JackpotRising/**/*.{swift,h,m}'
-  s.dependency  'Auth0', '~> 1.13'
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
