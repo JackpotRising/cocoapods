@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary = "Jackpot Rising is a patent pending software solution that you can integrate into your games, that enables your users to compete against."
   s.requires_arc = true
 
-  s.version = "3.5.12"
+  s.version = "3.5.13"
   s.license = { :type => "Apache", :file => "LICENSE" }
   s.author = { "Nick Wallace" => "developer@jackpotrising.com" }
 
