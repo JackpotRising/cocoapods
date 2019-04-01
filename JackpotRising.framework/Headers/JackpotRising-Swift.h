@@ -187,6 +187,77 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
+SWIFT_CLASS("_TtC13JackpotRising28AcceptSDKCardFieldsValidator")
+@interface AcceptSDKCardFieldsValidator : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (NSInteger)cardExpirationYearMin SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)validateSecurityCodeWithString:(NSString * _Nonnull)inSecurityCode SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)validateCardWithLuhnAlgorithm:(NSString * _Nonnull)inCardNumber SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)validateExpirationDate:(NSString * _Nonnull)inMonth inYear:(NSString * _Nonnull)inYear SWIFT_WARN_UNUSED_RESULT;
+@end
+
+typedef SWIFT_ENUM(NSInteger, AcceptSDKEnvironment, closed) {
+  AcceptSDKEnvironmentENV_LIVE = 0,
+  AcceptSDKEnvironmentENV_TEST = 1,
+};
+
+@class Messages;
+
+SWIFT_CLASS("_TtC13JackpotRising22AcceptSDKErrorResponse")
+@interface AcceptSDKErrorResponse : NSObject
+- (Messages * _Nonnull)getMessages SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class AcceptSDKRequest;
+@class AcceptSDKTokenResponse;
+
+SWIFT_CLASS("_TtC13JackpotRising16AcceptSDKHandler")
+@interface AcceptSDKHandler : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithEnvironment:(enum AcceptSDKEnvironment)environment OBJC_DESIGNATED_INITIALIZER;
+- (void)getTokenWithRequest:(AcceptSDKRequest * _Nonnull)inRequest successHandler:(void (^ _Nonnull)(AcceptSDKTokenResponse * _Nonnull))successHandler failureHandler:(void (^ _Nonnull)(AcceptSDKErrorResponse * _Nonnull))failureHandler;
+@end
+
+@class MerchantAuthenticaton;
+@class SecurePaymentContainerRequest;
+
+SWIFT_CLASS("_TtC13JackpotRising16AcceptSDKRequest")
+@interface AcceptSDKRequest : NSObject
+@property (nonatomic, strong) MerchantAuthenticaton * _Nonnull merchantAuthentication;
+@property (nonatomic, strong) SecurePaymentContainerRequest * _Nonnull securePaymentContainerRequest;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13JackpotRising17AcceptSDKSettings")
+@interface AcceptSDKSettings : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class OpaqueData;
+
+SWIFT_CLASS("_TtC13JackpotRising22AcceptSDKTokenResponse")
+@interface AcceptSDKTokenResponse : NSObject
+- (OpaqueData * _Nonnull)getOpaqueData SWIFT_WARN_UNUSED_RESULT;
+- (Messages * _Nonnull)getMessages SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+SWIFT_CLASS("_TtC13JackpotRising11FingerPrint")
+@interface FingerPrint : NSObject
+@property (nonatomic, copy) NSString * _Nonnull fingerPrintHashValue;
+@property (nonatomic, copy) NSString * _Nonnull sequence;
+@property (nonatomic, copy) NSString * _Nonnull timestamp;
+@property (nonatomic, copy) NSString * _Nullable currencyCode;
+@property (nonatomic, copy) NSString * _Nonnull amount;
+- (nullable instancetype)initInHashValue:(NSString * _Nonnull)inHashValue inSequence:(NSString * _Nonnull)inSequence inTimestamp:(NSString * _Nonnull)inTimestamp inCurrencyCode:(NSString * _Nullable)inCurrencyCode inAmount:(NSString * _Nullable)inAmount OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
 
 enum JackpotRisingURL : NSInteger;
 enum JackpotRisingAPIMode : NSInteger;
@@ -294,6 +365,62 @@ SWIFT_PROTOCOL("_TtP13JackpotRising21JackpotRisingDelegate_")
 @end
 
 
+SWIFT_CLASS("_TtC13JackpotRising21MerchantAuthenticaton")
+@interface MerchantAuthenticaton : NSObject
+@property (nonatomic, copy) NSString * _Nonnull name;
+@property (nonatomic, strong) FingerPrint * _Nullable fingerPrint;
+@property (nonatomic, copy) NSString * _Nullable clientKey;
+@property (nonatomic, copy) NSString * _Nullable mobileDeviceId;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13JackpotRising7Message")
+@interface Message : NSObject
+- (NSString * _Nonnull)getCode SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)getText SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13JackpotRising8Messages")
+@interface Messages : NSObject
+- (NSString * _Nonnull)getResultCode SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<Message *> * _Nonnull)getMessages SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+
+
+SWIFT_CLASS("_TtC13JackpotRising10OpaqueData")
+@interface OpaqueData : NSObject
+- (NSString * _Nonnull)getDataDescriptor SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)getDataValue SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class WebCheckOutDataType;
+
+SWIFT_CLASS("_TtC13JackpotRising29SecurePaymentContainerRequest")
+@interface SecurePaymentContainerRequest : NSObject
+@property (nonatomic, strong) WebCheckOutDataType * _Nonnull webCheckOutDataType;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13JackpotRising5Token")
+@interface Token : NSObject
+@property (nonatomic, copy) NSString * _Nonnull cardNumber;
+@property (nonatomic, copy) NSString * _Nonnull expirationMonth;
+@property (nonatomic, copy) NSString * _Nonnull expirationYear;
+@property (nonatomic, copy) NSString * _Nullable cardCode;
+@property (nonatomic, copy) NSString * _Nullable zip;
+@property (nonatomic, copy) NSString * _Nullable fullName;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 
@@ -332,6 +459,13 @@ SWIFT_PROTOCOL("_TtP13JackpotRising21JackpotRisingDelegate_")
 
 
 
+
+
+SWIFT_CLASS("_TtC13JackpotRising19WebCheckOutDataType")
+@interface WebCheckOutDataType : NSObject
+@property (nonatomic, strong) Token * _Nonnull token;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

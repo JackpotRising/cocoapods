@@ -6,9 +6,8 @@ Pod::Spec.new do |s|
   s.summary = "Jackpot Rising is a patented software solution that you can integrate into your games, that enables your users to compete against."
   s.requires_arc = true
   s.swift_version = '4.0'
-  s.dependency 'AuthorizeNetAccept'
 
-  s.version = "3.5.23"
+  s.version = "3.5.24"
 
   s.license = { :type => "Apache", :file => "LICENSE" }
 
