@@ -1,0 +1,18 @@
+framework module JackpotRising {
+    umbrella header "JackpotRising.h"
+    
+    export *
+    module * { export * }
+    
+    explicit module Private {
+        header "ZoozSDKWrapper.h"
+        header "NSString+JackpotRising.h"
+        header "JRMixpanelWrapper.h"
+        header "AnalyticsWrapper.h"
+    }
+}
+
+module JackpotRising.Swift {
+    header "JackpotRising-Swift.h"
+    requires objc
+}

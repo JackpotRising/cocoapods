@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
 
   s.platform = :ios
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
   s.name = "JackpotRising"
   s.summary = "Jackpot Rising is a patented software solution that you can integrate into your games, that enables your users to compete against."
   s.requires_arc = true
   s.swift_version = '4.0'
 
-  s.version = "3.5.33"
+  s.version = "3.5.34"
 
   s.license = { :type => "Apache", :file => "LICENSE" }
 
